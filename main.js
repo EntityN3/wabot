@@ -80,6 +80,7 @@ function start(client) {
             let group = message.body.split("@")[1] + "@g.us";
             let sender = message.body.split("@")[2] + "@c.us";
             await client.addParticipant(group, sender);
+            await client.sendText(message.from, sender + " telah ditambahkan ke grub id " + group + ".");
             return;
         }
         if(message.body.split("@")[0] === "getDatabase"){
