@@ -65,8 +65,8 @@ function start(client) {
                 await client.sendText(message.from, "Hanya bisa diakses digroup & jadikan bot ini sebagai admin digroup!");
                 return;
             }
-            if(message.body.split("@").length === 1 || message.body.split("@.length === 2){
-                await client.sendText(message.from, "*Format Salah!*\n\nContoh Penggunaan:\naddUser@nomor");
+            if(message.body.split("@").length === 1 || message.body.split("@").length === 2){
+                await client.sendText(message.from, "*Format Salah!*\n\nContoh Penggunaan:\naddUser@nomor1@nomor2");
                 return;
             }
             let sender = message.body.split("@")[1] + "@c.us";
