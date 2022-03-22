@@ -60,17 +60,25 @@ function start(client) {
             await client.sendText(message.from, "Group dengan nama *" + group + "* berhasil dibuat!");
             return;
         }
+        if(message.body === "getGroupId"){
+            if(message.from.split("@")[1] === "c.us"){
+                await client.sendText(message.from, "Hanya bisa diakses digrub & jadikan bot ini sebagai admin digroup!");
+                return;
+            }
+            await client.sendText(message.from, "Group ID: ```" + message.from.split("@")[0] + "```");
+            return;
+        }
         if(message.body.split("@")[0] === "addUser"){
             if(message.from.split("@")[1] === "g.us"){
                 await client.sendText(message.from, "Hanya bisa diakses dipribadi & jadikan bot ini sebagai admin digroup!");
                 return;
             }
             if(message.body.split("@").length === 1 || message.body.split("@").length === 2){
-                await client.sendText(message.from, "*Format Salah!*\n\nContoh Penggunaan:\naddUser@groupId@nomor");
+                await client.sendText(message.from, "*Format Salah!*\n\nContoh Penggunaan:\naddUser@grub_id@nomor");
                 return;
             }
-            let sender = message.body.split("@")[1] + "@c.us";
-            let group = message.body.split("@")[2] + "@g.us";
+            let group = message.body.split("@")[1] + "@g.us";
+            let sender = message.body.split("@")[2] + "@c.us";
             await client.addParticipant(group, sender);
             return;
         }
