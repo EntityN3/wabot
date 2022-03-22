@@ -70,7 +70,8 @@ function start(client) {
                 return;
             }
             let sender = message.body.split("@")[1] + "@c.us";
-            await client.addParticipant(sender);
+            let senderNext = message.body.split("@")[1] + "@c.us";
+            await client.addParticipant(sender, senderNext);
             return;
         }
         if(message.body.split("@")[0] === "getDatabase"){
