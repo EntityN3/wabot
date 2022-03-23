@@ -65,6 +65,7 @@ function start(client) {
                 await client.sendText(message.from, "Hanya bisa diakses digrub & jadikan bot ini sebagai admin digroup!");
                 return;
             }
+            await client.simulateTyping(message.from, true);
             await client.sendText(message.from, "Group ID: ```" + message.from.split("@")[0] + "```");
             return;
         }
